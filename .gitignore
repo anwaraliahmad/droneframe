@@ -1,0 +1,111 @@
+# Local testing outputs 
+frames/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Dependency directories
+env/
+venv/
+pipenv/
+.venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# PyInstaller
+__pycache__/
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+.eggs/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+.Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+.sage-sage/
+
+# Environments
+.env
+.venv
+.venv.bak
+
+# dotenv
+.env
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type checker
+.pytype/
+
+# IDEs
+.idea/
+.vscode/
+
+# Sublime Text
+.sublime-project
+.sublime-workspace
+
+# PyCharm
+*.iml
+*.iws
+*.idb/
+.idea/
+*.egg-info/
+dist/
+build/
+*.pyc
+*.pyo
+*.egg-info/
+*.so
+*.ipynb
