@@ -49,11 +49,12 @@ def parse_srt_metadata(srt_path, frame_rate, frames_dir):
 
     # Define the regular expression pattern
     metadata_pattern = re.compile(r"(\d+)\n(\d{2}:\d{2}:\d{2},\d{3})\s+-->\s+(\d{2}:\d{2}:\d{2},\d{3})\n<font size=\"28\">SrtCnt : \d+, DiffTime : (\d+)ms\n(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}.\d{3})\n\[iso\s*:\s*\d+] \[shutter\s*:\s*\d+\/\d+\.\d+] \[fnum\s*:\s*\d+].*?\[latitude:\s*([\d.-]+)] \[longitude:\s*([\d.-]+)](?: \[rel_alt:\s*([\d.-]+) abs_alt:\s*([\d.-]+)])?")
-    # Tracks timestamp across frames in the SRT based on their difftime
+    # Tracks timestamp across frames in the SRT based on their frame durations
     total_diff_time = 0
-    # Bring in the list of extract frames
+    # Bring in the list of extracted frames
     frame_files = [f for f in os.listdir(frames_dir) if f.endswith(".jpg")]
     frame_files.sort()  # Sort the files to ensure the correct order
+    # Match all the frames in the SRT to extract their data
     for match in metadata_pattern.finditer(srt_content):
         (
             frame_number_str, _, _,

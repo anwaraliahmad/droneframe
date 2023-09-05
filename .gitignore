@@ -1,5 +1,6 @@
 # Local testing outputs 
 frames/
+DJI_*/
 
 # Python
 __pycache__/
