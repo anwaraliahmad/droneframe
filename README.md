@@ -45,10 +45,11 @@ $ droneframe path/to/DJI_001.MP4 -f 3 # Large drone video of subject.
 > If constraints permit, you can always extract more with a higher framerate or generate an additional batch of frames from another video you have of the target.
 
 ### End Result
-<center> <div class="sketchfab-embed-wrapper"> <iframe title="Abandoned Railyard Flue" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/3c92d642af34444dadc83f1d2d0dd07d/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/abandoned-railyard-flue-3c92d642af34444dadc83f1d2d0dd07d?utm_medium=embed&utm_campaign=share-popup&utm_content=3c92d642af34444dadc83f1d2d0dd07d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Abandoned Railyard Flue </a> by <a href="https://sketchfab.com/anwaraliahmad?utm_medium=embed&utm_campaign=share-popup&utm_content=3c92d642af34444dadc83f1d2d0dd07d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> anwaraliahmad </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=3c92d642af34444dadc83f1d2d0dd07d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
-</center>
+![Abandoned Railyard Flue](https://i.imgur.com/wQro7HK.png)
 
 This is a model of an abandoned structure that was created by running `droneframe` and uploading the resulting frames onto [WebODM Lightning](https://webodm.net/) for 3D reconstruction.
+
+_You can interact with the full model on [Sketchfab](https://sketchfab.com/3d-models/abandoned-railyard-flue-3c92d642af34444dadc83f1d2d0dd07d)_
 
 
 ## License
