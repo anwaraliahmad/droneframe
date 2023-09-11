@@ -31,7 +31,7 @@ $ pip install droneframe-version.<tar.gz or whl>
 | **video**       	| Path to drone video file (`.MP4`)                        	|                      	|                                                	| **Yes**                         	|
 | `meta`          	| Path to metadata file (`.SRT`)                           	| `-m`, `--meta`       	| Same pathname (sans file extension) as `video` 	| No                              	|
 | `frame_rate`    	| The rate for frame extraction                            	| `-f`, `--frame_rate` 	| 30                                             	| No (but **highly** recommended) 	|
-| `output`        	| Path to output folder  	| `-o`, `--output`     	| Generates `./frames` (in working directory)              	| No                              	|
+| `output`        	| Target path to output folder (will generate a folder named after the video file there) 	| `-o`, `--output`     	|  Working directory              	| No                              	|
 | Help            	| Display help message                                     	| `-h`, `--help`       	|                                                	|                                 	|
 ## Example: Photogrammetry
 
@@ -40,7 +40,7 @@ $ pip install droneframe-version.<tar.gz or whl>
 ```bash
 $ droneframe path/to/DJI_001.MP4 -f 3 # Large drone video of subject.
 ```
-2. Import the `./frames` folder into your photogrammetry software of choice.
+2. Import the generated `./DJI_001` folder into your photogrammetry software of choice.
 3. Enjoy your 3D recreation.
 > If constraints permit, you can always extract more with a higher framerate or generate an additional batch of frames from another video you have of the target.
 

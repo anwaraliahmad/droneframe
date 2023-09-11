@@ -19,6 +19,25 @@ FR_MSG = 'Frame extraction framerate. Assumes %(default)s by default.'
 OUT_MSG = "Directory for frames output."
 DEFAULT_OUTPUT_NAME = 'frames'
 
+
+def get_file_name(file_path):
+    """Returns the extensionless file name at the given file path.
+
+    Assumes the file is a valid, conforming to <name>.<extension> format.
+
+    Args:
+        file_path -- file path
+    Returns 
+        file -- extensionless file name
+    """
+    # os split returns head tail pair of parent path - file name 
+    file_dir_name_pair = os.path.split(file_path)
+    # File name is the tail
+    file_name = file_dir_name_pair[1] 
+    # Extract name without extension
+    file = os.path.splitext(file_name)[0]
+    return file
+
 def check_dependencies():
     """Ensure that the system has the required CLI tools.
 
@@ -71,27 +90,24 @@ def check_valid_output(output):
         raise argparse.ArgumentTypeError(f"'{output}' is not a valid directory.")
     return output
 
-def mk_output_dir(output_path):
+def mk_output_dir(target_path, output_dir_name):
     """Attempts to generate an output directory unless the path
     provided is already an existing one.
 
     Args:
-        output_path -- the path (if provided) to the output directory for the frames
+        target_path -- the path (if provided) to where the output folder will be
     """
-    # Use the provided output directory or make default folder in working directory
-    output = output_path or os.path.join(os.getcwd(), DEFAULT_OUTPUT_NAME)
-
+    # Set output folder name
+    output_name = output_dir_name or DEFAULT_OUTPUT_NAME
+    # Set the output folder path, defaulting to current working directory
+    output_path = os.path.join(target_path or os.getcwd(), output_name)
     # Check if the provided output directory already exists.
-    if os.path.exists(output):
-        print(f"'{output}' already exists. Using the existing directory.")
+    if os.path.exists(output_path):
+        print(f"'{output_path}' already exists. Using the existing directory.")
+    # Create output folder if doesn't already exist
     else:
-        try:
-            os.makedirs(output)
-            print(f"Created output directory: {output}")
-        except OSError as error:
-            print(f"Error creating directory {output}: {error}")
-            sys.exit(1)  # Exit with a non-zero error code.
-    return output
+        os.makedirs(output_path)
+    return output_path
 
 def get_default_srt_path(video_file_path):
     """Generates the default .SRT file path based on the video file path.
@@ -116,13 +132,15 @@ def main():
     parser.add_argument('video', type=lambda f: check_valid_file(f, '.mp4'), help=VID_MSG)
     parser.add_argument("-m", "--meta", type=lambda f: check_valid_file(f, '.srt'), help=SRT_MSG)
     parser.add_argument("-f", "--frame_rate", help=FR_MSG, default=30, type=check_frame_rate)
-    parser.add_argument("-o", "--output", help=OUT_MSG, type=check_valid_output)
+    parser.add_argument("-o", "--output", help=OUT_MSG)
     args = parser.parse_args()
     # If 'meta' is not provided, set it to the default .SRT file path
     if args.meta is None:
         args.meta = get_default_srt_path(args.video)
+    # Output folder is named after the input video file
+    output_dir_name = get_file_name(args.video)
     # Set the output directory (or create one) for the frames
-    args.output = mk_output_dir(args.output)
+    args.output = mk_output_dir(args.output, output_dir_name)
     # Call the main entrypoint with the parsed arguments
     run(args)
 
